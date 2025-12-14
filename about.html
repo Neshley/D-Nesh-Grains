@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <title>business-focused</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    </head>
+    
+    <!------ Body ------>
+    <body>
+        <h1 class="title">D-Nesh Grains hub Kenya</h1>
+    <section Class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="Orders.html">ORDERS</a></li>
+          <li><a href="Contacts.html">CONTACT</a></li>
+        </ul>
+            </div>
+             <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+                <h1>About Us</h1>
+    </section>
+        
+     <!--About us content-->
+        
+    <section class="about-Us">
+        
+        <div class="row">
+            <div class="about-col">
+                <h1>we provide you with quality products always</h1>
+                <p>D-Nesh Grains is a local specialty store dedicated to providing the highest
+                     quality cereals, grains, and agricultural products. Established with a passion 
+                      for delivering fresh, nutritious, and locally sourced grains to our community..
+                      <br>
+                      <br>click the button below to explore on our products</p>
+                <a href="products.html" class="hero-btn red-btn">EXPLORE NOW</a>
+            </div> 
+            <div class="about-col">
+                <img src="images/about.jpg">
+            </div>
+        </div>
+    </section> 
+        
+        
+            <!------Footer------> 
+    
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Always Highest quality Products with D-Nesh Grains.</p>
+         <div class="icons">
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-facebook"></a>
+            <a href="https://t.me/Technesh1" class="fa fa-telegram"></a>
+            <a href="https://wa.me/+254799873196" class="fa fa-whatsapp"></a>
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-instagram"></a>
+        </div>
+        <p>made with <i class="fa fa-heart-o"></i> by Derrick Nesh</p>
+        </section>
+        
+    <!------javascript for Toggle Menu------>
+    <script>
+
+    var navlinks = document.getElementById("navlinks");
+    function showmenu(){
+    navlinks.style.right = "0";
+    }
+    function hidemenu(){
+    navlinks.style.right = "-200px";
+    }
+    </script>
+        
+        
+        
+        
+        
+        
+    </body>
+</html>

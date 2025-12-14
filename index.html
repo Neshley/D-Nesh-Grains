@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <title>business-focused - Your Premier Cereal Destination</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    </head>
+    
+    <!------ Body ------>
+    <body>
+<section Class="header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="Orders.html">ORDERS</a></li>
+          <li><a href="Contacts.html">CONTACT</a></li>
+        </ul>
+            </div>
+             <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+    
+        <div class="text-box">
+            <h1>Fresh cereals, direct from farmers</h1>
+            <p>Welcome to D-Nesh Grains Shop <br>Your Trusted Local Cereal and Grains Destination</p>
+            <a href="Contacts.html" class="hero-btn">Visit us to know more</a>
+        </div>
+    </section>
+        
+        
+            <!------ Products ------>
+    
+    <section class="products">
+        <div>
+            <h1>Our products</h1>
+            <p>Products we have in our shop in good quality.Here are some of the Cereals available on our hub...<br>To see more of what we have in our shop,<br>Visit our<a href="products.html" style="text-decoration: none;"> Products page.</a></p>
+        </div>
+            <div class="row">
+                <div class="products-col">
+                    <h3>Maize</h3>
+                    <p>Looking Foward to buy Maize,Visit us today and get yours in the quantity you want.</p>
+                </div>
+                <div class="products-col">
+                    <h3>Beans</h3>
+                    <p>Looking Foward to buy Beans,Visit us today and get yours in the quantity you want.</p>
+                </div>
+                <div class="products-col">
+                    <h3>Millet</h3>
+                    <p>Looking Foward to buy Millet,Visit us today and get yours in the quantity you want.</p>
+                </div>
+            </div>
+    </section>
+        
+
+    <!-- ---shops--- -->
+     
+    <section class="Shops">
+        <h1>Our Shops in Kenya</h1>
+        <p>Visit us in our Shops today and get your product</p>
+        
+        <div class="row">
+            <div class="Shops-col">
+                <img src="images/london.png">
+                <div class="layer">
+                    <h3>EMBU</h3>
+                </div>
+            </div> 
+            <div class="Shops-col">
+                <img src="images/newyork.png">
+                <div class="layer">
+                    <h3>NAIROBI</h3>
+                </div>
+            </div>
+            <div class="Shops-col">
+                <img src="images/washington.png">
+                <div class="layer">
+                    <h3>KIRINYAGA</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    
+        
+    <!------testimonials------>
+    
+    <section class="testimonials">
+        <h1>What our Customers says</h1>
+        <p>Some of our customers who have been trading with us.</p>
+        
+        <div class="row">
+            <div class="testimonial-col">
+                <img src="images/user1.jpg">
+                <diV>
+                    <p>My Name is Deborah and I have been buying my cereals on Farm2Table and and I like the products...Their products are indeed of good quality and good quantity as well Always</p>
+                    <h3>DEBORAH JAMES</h3>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </diV>
+            </div>
+            <div class="testimonial-col">
+                <img src="images/user2.jpg">
+                <diV>
+                    <p> At Farm2Table I Always get products in good quality and i Enjoy their order page.Whenever I order something,It delivered within 48hrs.</p>
+                    <h3>JOHN WILSON</h3>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </diV>
+            </div>
+        </div>
+    </section>
+    
+            <!------Call to Action------>
+    
+    <section class="cta">
+        <h1>Browse For Cereals</h1>
+        <a href="products.html" class="hero-btn">Browse</a>
+    </section>
+
+            <!------Footer------> 
+    
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Always Highest quality Products with D-Nesh Grains.</p>
+         <div class="icons">
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-facebook"></a>
+            <a href="https://t.me/Technesh1" class="fa fa-telegram"></a>
+            <a href="https://wa.me/+254799873196" class="fa fa-whatsapp"></a>
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-instagram"></a>
+        </div>
+        <p>made with <i class="fa fa-heart-o"></i> by Derrick Nesh</p>
+        </section>
+        
+        <!------javascript for Toggle Menu------>
+    <script>
+    
+        var navlinks = document.getElementById("navlinks");
+        function showmenu(){
+            navlinks.style.right = "0";
+        }
+        function hidemenu(){
+            navlinks.style.right = "-200px";
+        }
+    </script>
+        
+        
+    </body>
+</html>

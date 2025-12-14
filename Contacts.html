@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <title>business-focused</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    </head>
+    
+    <!------ Body ------>
+    <body>
+    <section Class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="Orders.html">ORDERS</a></li>
+          <li><a href="Contacts.html">CONTACT</a></li>
+        </ul>
+            </div>
+             <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+            <h1>Contact Us</h1>
+    </section>
+        
+        
+        <!--contact us-->
+        
+    <section class="Contact us">
+         <div class="call">
+            <h1>Our Contacts</h1>
+            <p>Reach us now through our Contacts:
+            </p>
+        </div>
+            <div class="row">
+                <div class="Contacts-col">
+                    <i class="fa fa-home"></i>
+                    <h3>Embu</h3>
+                    <p>Embu kiritiri</p>
+                </div>
+                <div class="Contacts-col">
+                    <i class="fa fa-envelope-o"></i>
+                    <h3>Email</h3>
+                    <p>derrickmunene2025@gmail.com</p>
+                </div>
+                <div class="Contacts-col">
+                    <i class="fa fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+254799873196</p>
+                    <p>+254704034278</p>
+                </div>
+            </div>
+    </section>
+
+
+
+
+            <!------Footer------> 
+    
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Always Highest quality Products with D-Nesh Grains.</p>
+         <div class="icons">
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-facebook"></a>
+            <a href="https://t.me/Technesh1" class="fa fa-telegram"></a>
+            <a href="https://wa.me/+254799873196" class="fa fa-whatsapp"></a>
+            <a href="https://www.facebook.com/nesh.ley.2025" class="fa fa-instagram"></a>
+        </div>
+        <p>made with <i class="fa fa-heart-o"></i> by Derrick Nesh</p>
+        </section>
+        
+        
+        
+            <!------javascript for Toggle Menu------>
+    <script>
+    
+        var navlinks = document.getElementById("navlinks");
+        function showmenu(){
+            navlinks.style.right = "0";
+        }
+        function hidemenu(){
+            navlinks.style.right = "-200px";
+        }
+    </script>
+        
+        
+        
+        
+    </body>
+</html>

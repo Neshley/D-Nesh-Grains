@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<?php
+// If using PHP, keep your admin gate at the top
+// session_start();
+// if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+//   header("Location: login.html");
+//   exit();
+// }
+?>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --panel: #111827;       /* gray-900 */
+      --muted: #1f2937;       /* gray-800 */
+      --text: #e5e7eb;        /* gray-200 */
+      --text-dim: #9ca3af;    /* gray-400 */
+      --accent: #22c55e;      /* green-500 */
+      --accent-2: #3b82f6;    /* blue-500 */
+      --danger: #ef4444;      /* red-500 */
+      --border: #374151;      /* gray-700 */
+      --card: #0b1220;
+    }
+
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(145deg, #0b1220, var(--bg));
+      color: var(--text);
+    }
+
+
+    /* Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+
+    /* Sidebar */
+    .sidebar {
+      background: linear-gradient(180deg, var(--panel), #0b1220);
+      border-right: 1px solid var(--border);
+      padding: 20px 16px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px;
+    }
+    .brand .logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2));
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.25);
+    }
+    .brand .title { font-weight: 700; letter-spacing: 0.3px; }
+
+
+    .nav {
+      display: grid; gap: 8px;
+    }
+    .nav a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a.active, .nav a:hover {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: var(--border);
+    }
+    .nav small { color: var(--text-dim); }
+
+
+    /* Topbar */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(6px);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .topbar .search {
+      display: flex; gap: 10px;
+      background: var(--muted);
+      padding: 8px 12px; border-radius: 12px; border: 1px solid var(--border);
+    }
+    .topbar input {
+      border: none; outline: none; background: transparent; color: var(--text);
+      width: 260px;
+    }
+    .topbar .user {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
+    }
+    .badge {
+      padding: 2px 8px; border-radius: 999px; font-size: 12px;
+      background: rgba(34, 197, 94, .12); color: #86efac; border: 1px solid rgba(34, 197, 94, .35);
+    }
+
+
+    /* Content */
+    .content { padding: 20px; }
+    .cards {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 16px 0 24px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--card), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+       transition: 0.5s;
+    }
+    .card:hover{
+      box-shadow: #22c55e 0 10px 24px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 14px; color: var(--text-dim); font-weight: 600; }
+    .card .value { font-size: 24px; font-weight: 700; letter-spacing: .3px; }
+    .card .trend { font-size: 12px; color: #86efac; }
+
+
+    /* Panels */
+    .panel {
+      background: linear-gradient(180deg, var(--card), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; margin-bottom: 20px;
+    }
+    .panel h2 {
+      margin: 0 0 12px; font-size: 18px; font-weight: 700;
+    }
+
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    th { text-align: left; font-size: 13px; color: var(--text-dim); font-weight: 600; }
+    tr:hover td { background: rgba(59, 130, 246, 0.08); }
+
+
+    /* Forms & buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border);
+      background: rgba(59,130,246,0.15); color: var(--text);
+      cursor: pointer; text-decoration: none;
+    }
+    .btn.green { background: rgba(34,197,94,0.15); }
+    .btn.red { background: rgba(239,68,68,0.12); }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+
+    /* Upload */
+    .upload {
+      border: 1px dashed var(--border);
+      padding: 14px; border-radius: 12px; background: rgba(31, 41, 55, .4);
+    }
+    input[type="file"], input[type="text"], input[type="email"], input[type="number"] {
+      width: 100%; padding: 10px 12px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--muted); color: var(--text);
+    }
+
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 84px 1fr; }
+      .brand .title, .nav small { display: none; }
+    }
+    @media (max-width: 700px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .topbar input { width: 160px; }
+    }
+    @media (max-width: 700px) {
+      .cards { grid-template-columns: 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { height: auto; position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="title">D-Nesh Grains Admin <br> Derrick</div>
+      </div>
+      <nav class="nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="manage_users.php">Users</a>
+        <a href="manage_orders.php">Orders</a>
+        <a href="upload.php">Uploads</a>
+        <a href="index.html">Home</a>
+        <a href="logout.php"><small>Logout</small></a>
+      </nav>
+    </aside>
+
+
+    <!-- Main -->
+    <main>
+      <div class="topbar">
+        <div class="search">
+          <span>🔎</span>
+          <input type="search" placeholder="Search users or orders..." />
+        </div>
+        <div style="font-size: 1.4em; font-weight: 500;">Welcome Back, Admin!</div>
+        <div class="user">
+          <span class="badge">Admin</span>
+          <div class="avatar" title="You"></div>
+        </div>
+      </div>
+
+
+      <div class="content">
+        <!-- Summary cards -->
+        <section class="cards">
+          <div class="card">
+            <h3>Total orders</h3>
+            <div class="value">128</div>
+            <div class="trend">+12% this week</div>
+          </div>
+          <div class="card">
+            <h3>Pending</h3>
+            <div class="value">14</div>
+            <div class="trend">-3% today</div>
+          </div>
+          <div class="card">
+            <h3>Registered users</h3>
+            <div class="value">76</div>
+            <div class="trend">+4 new</div>
+          </div>
+          <div class="card">
+            <h3>Revenue (KES)</h3>
+            <div class="value">245,300</div>
+            <div class="trend">+8% this month</div>
+          </div>
+        </section>
+
+
+        <!-- Orders table -->
+        <section class="panel">
+          <h2>Recent orders</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Replace with PHP loop over orders -->
+              <tr>
+                <td>127</td>
+                <td>Deborah Muthoka</td>
+                <td>kadebo@example.com</td>
+                <td>Sorghum</td>
+                <td>8</td>
+                <td><span class="badge">Pending</span></td>
+                <td class="row">
+                  <a class="btn green" href="#">Mark done</a>
+                  <a class="btn red" href="#">Cancel</a>
+                </td>
+              </tr>
+              <tr>
+                <td>126</td>
+                <td>Moraa Nyaga</td>
+                <td>Moraa@example.com</td>
+                <td>Maize</td>
+                <td>20</td>
+                <td><span class="badge">Shipped</span></td>
+                <td class="row">
+                  <a class="btn" href="#">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+
+        <!-- Users panel -->
+        <section class="panel">
+          <h2>Users snapshot</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Replace with PHP loop over users -->
+              <tr>
+                <td>1</td>
+                <td>admin</td>
+                <td>admin@cereals.co.ke</td>
+                <td><span class="badge">Admin</span></td>
+                <td class="row">
+                  <a class="btn" href="#">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td>45</td>
+                <td>user_Embu</td>
+                <td>user@domain.com</td>
+                <td>User</td>
+                <td class="row">
+                  <a class="btn" href="#">Promote</a>
+                  <a class="btn red" href="#">Disable</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+
+        <!-- Uploads panel (admin-only) -->
+        <section class="panel">
+          <h2>Upload files</h2>
+          <div class="upload">
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+              <div class="row">
+                <input type="file" name="file" required />
+                <button class="btn" type="submit">Upload</button>
+              </div>
+              <p style="color: var(--text-dim); margin-top: 8px;">
+                Allowed: JPG, PNG, PDF, MP4 (configure in upload.php).
+              </p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

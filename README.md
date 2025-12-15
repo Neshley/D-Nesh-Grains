@@ -1,12 +1,10 @@
-Hello Hello Hello 
+         Hello Hello Hello 
 
 
 this is Nesh 
 
-Im Derrick  
+I'm Derrick  
 
 Welcome to my code and do not mess up 
-
-Disclaimmer
 
 Do not mess my code budy

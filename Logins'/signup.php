@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if ($conn->query($sql) === TRUE) {
-        echo "Signup successful! <a href="login.html">Sign In</a>";
+        echo "Signup successful! <a href="signIn.html">Sign In</a>";
     } else {
         echo "Error: " . $conn->error;
     }

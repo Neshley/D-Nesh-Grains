@@ -329,6 +329,12 @@ p{
 .footer p{
     color: #92c9ad;
 }
+.footer p a{
+    color: #0872ec;
+}
+.footer p a:hover{
+color: rgb(16, 145, 65);
+}
 .fa-heart-o{
     color: #f44336;
 }

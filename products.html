@@ -250,6 +250,7 @@ body {
         flex: none;
         width: 100%;
         padding: 20px;
+        display: none;
     }
     .filter-group ul {
         display: flex;
@@ -272,9 +273,6 @@ body {
     }
     .product-grid {
         grid-template-columns: 1fr 1fr;
-    }
-    .sidebar {
-        display: none;
     }
 }
 
@@ -467,6 +465,7 @@ color: rgb(16, 145, 65);
                     <li><input type="checkbox" id="nutty" value="Nutty" class="filter"><label for="nutty">Nutty</label></li>
                     <li><input type="checkbox" id="fruity" value="Fruity" class="filter"><label for="fruity">Fruity</label></li>
                 </ul>
+                </ul>
             </div>
             <div id="filters" class="filter-group">
                 <h3>Dietary Needs</h3>
@@ -475,6 +474,16 @@ color: rgb(16, 145, 65);
                     <li><input type="checkbox" value="Low Sugar" id="low-sugar" class="filter"><label for="low-sugar">Low Sugar</label></li>
                 </ul>
             </div>
+            <div id="filters" class="filter-group">
+                <h3>Cereals</h3>
+                <ul>
+                    <li><input type="checkbox" id="Beans" value="Beans" class="filter"><label for="Beans">Beans</label></li>
+                    <li><input type="checkbox" id="Maize" value="Maize" class="filter"><label for="Maize">Maize</label></li>
+                    <li><input type="checkbox" id="Millet" value="Millet" class="filter"><label for="Millet">Millet</label></li>
+                    <li><input type="checkbox" id="Sorghum" value="Sorghum" class="filter"><label for="Sorghum">Sorghum</label></li>
+                </ul>
+            </div>
+
         </aside>
         
         <section class="product-grid" id="products">
@@ -521,11 +530,94 @@ color: rgb(16, 145, 65);
                         </div>
                     </div>
                 </div>
-
-
-                <!-- More cards would follow here -->
                 
- 
+                <!-- Cereal Product Card 3 -->
+                <div class="product" data-flavor="Beans" data-diet="Gluten-Free">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-10%</span>
+                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Beans</h3>
+                            <p class="cereal-brand">SunRise Foods</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$4.50</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cereal Product Card 4 -->
+                <div class="product" data-flavor="Maize" data-diet="Gluten-Free">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-10%</span>
+                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Maize</h3>
+                            <p class="cereal-brand">SunRise Foods</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$4.50</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cereal Product Card 5 -->
+                <div class="product" data-flavor="Millet" data-diet="Gluten-Free">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-5%</span>
+                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Millet</h3>
+                            <p class="cereal-brand">SunRise Foods</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (97 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$3.00</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cereal Product Card 6 -->
+                <div class="product" data-flavor="Sorghum" data-diet="Gluten-Free">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-7%</span>
+                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Sorghum</h3>
+                            <p class="cereal-brand">SunRise Foods</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$4.90</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                 <!-- More cards would follow here -->
 
 
         </section>

@@ -460,275 +460,74 @@ color: rgb(16, 145, 65);
         
         <aside class="sidebar" style="position: sticky; top: 0">
             <h2>Filter By:</h2>
-            <div class="filter-group">
+            <div id="filters" class="filter-group">
                 <h3>Flavor Profile</h3>
                 <ul>
-                    <li><input type="checkbox" id="sweet"><label for="sweet">Sweet</label></li>
-                    <li><input type="checkbox" id="nutty"><label for="nutty">Nutty</label></li>
-                    <li><input type="checkbox" id="fruity"><label for="fruity">Fruity</label></li>
+                    <li><input type="checkbox" id="sweet" value="Sweet" class="filter"><label for="sweet">Sweet</label></li>
+                    <li><input type="checkbox" id="nutty" value="Nutty" class="filter"><label for="nutty">Nutty</label></li>
+                    <li><input type="checkbox" id="fruity" value="Fruity" class="filter"><label for="fruity">Fruity</label></li>
                 </ul>
             </div>
-            <div class="filter-group">
+            <div id="filters" class="filter-group">
                 <h3>Dietary Needs</h3>
                 <ul>
-                    <li><input type="checkbox" id="gf"><label for="gf">Gluten-Free</label></li>
-                    <li><input type="checkbox" id="low-sugar"><label for="low-sugar">Low Sugar</label></li>
+                    <li><input type="checkbox" value="Gluten-Free" id="gf" class="filter"><label for="gf">Gluten-Free</label></li>
+                    <li><input type="checkbox" value="Low Sugar" id="low-sugar" class="filter"><label for="low-sugar">Low Sugar</label></li>
                 </ul>
             </div>
         </aside>
         
-        <section class="product-grid">
+        <section class="product-grid" id="products">
             <h1 style="text-align: center">Featured Selections</h1>
-            
-            <!-- Cereal Product Card 1 -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-15%</span>
-                    <img src="cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Artisan Morning Oats</h3>
-                    <p class="cereal-brand">High-fiber, slow-steamed oats for a creamy, heart-healthy breakfast.</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2605; (45 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$5.99 <br> ksh. 780</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-            
-            <!-- Cereal Product Card 2 -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-15%</span>
-                    <img src="cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Artisan Morning Oats</h3>
-                    <p class="cereal-brand">GrainWorks Inc.</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2605; (45 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$5.99</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-            
-            <!-- Cereal Product Card 3 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-            
-             <!-- Cereal Product Card 4 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-            
-             <!-- Cereal Product Card 5 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
 
-            <!-- Cereal Product Card 6 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
+                    <!-- Cereal Product Card 1 -->
+                <div class="product" data-flavor="Sweet" data-diet="Gluten-Free">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-15%</span>
+                            <img src="cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Artisan Morning Oats</h3>
+                            <p class="cereal-brand">High-fiber, slow-steamed oats for a creamy, heart-healthy breakfast.</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2605; (45 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$5.99 <br> ksh. 780</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
+                
+                <!-- Cereal Product Card 2 -->
+                <div class="product" data-flavor="Nutty,Fruity" data-diet="Low Sugar">
+                    <div class="cereal-card">
+                        <div class="card-header">
+                            <span class="tag discount">-10%</span>
+                            <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="cereal-name">Golden Crispy Flakes</h3>
+                            <p class="cereal-brand">SunRise Foods</p>
+                            <div class="rating">
+                                &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$4.50</span>
+                            <button class="add-to-cart">Buy Now</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Cereal Product Card 7 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
 
-            <!-- Cereal Product Card 8 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
+                <!-- More cards would follow here -->
+                
+ 
 
-            <!-- Cereal Product Card 9 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
 
-            <!-- Cereal Product Card 10 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-
-            <!-- Cereal Product Card 11 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-
-            <!-- Cereal Product Card 12 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-10%</span>
-                    <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Golden Crispy Flakes</h3>
-                    <p class="cereal-brand">SunRise Foods</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (102 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$4.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-
-            <!-- Cereal Product Card 13 (Example of another item) -->
-            <div class="cereal-card">
-                <div class="card-header">
-                    <span class="tag discount">-14%</span>
-                    <img src="cereal_Images/Aromatic Long-Grain Rice.jpg" alt="Long-Grain Rice" class="cereal-image">
-                </div>
-                <div class="card-body">
-                    <h3 class="cereal-name">Aromatic Long-Grain Rice</h3>
-                    <p class="cereal-brand">Perfectly aged and polished for a light, fluffy texture in every meal.</p>
-                    <div class="rating">
-                        &#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (200 Reviews)
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="price">$6.50</span>
-                    <button class="add-to-cart">Buy Now</button>
-                </div>
-            </div>
-            
-            <!-- More cards would follow here -->
-            
         </section>
         
     </main>
@@ -763,6 +562,31 @@ color: rgb(16, 145, 65);
         function hidemenu(){
             navlinks.style.right = "-200px";
         }
+
+        //----javascript for filter section------>
+
+        const filters = document.querySelectorAll('.filter');
+        const products = document.querySelectorAll('.product');
+
+        filters.forEach(filter => {
+        filter.addEventListener('change', () => {
+            const activeFilters = Array.from(filters)
+            .filter(f => f.checked)
+            .map(f => f.value);
+
+            products.forEach(product => {
+            const flavor = product.dataset.flavor.split(',');
+            const diet = product.dataset.diet.split(',');
+
+            const matches = activeFilters.every(filter =>
+                flavor.includes(filter) || diet.includes(filter)
+            );
+
+            product.style.display = matches || activeFilters.length === 0 ? 'block' : 'none';
+    });
+  });
+});
+
     </script>
         
 

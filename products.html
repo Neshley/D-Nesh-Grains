@@ -143,6 +143,37 @@ body {
 }
 
 
+    .prod {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+    }
+
+    .prod img {
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* Magnifier lens */
+    .magnifier {
+      position: absolute;
+      border: 2px solid #333;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      pointer-events: none;
+      display: none;
+    }
+
+    .magnifier img {
+      position: absolute;
+      transform: scale(2); /* Zoom level */
+      transform-origin: top left;
+    }
+
+
 /* --- 4. Individual Cereal Card --- */
 .cereal-card {
     background-color: var(--color-card-bg);
@@ -386,8 +417,14 @@ nav .fa{
 
 /* Back to top */
 .backtotop{
-  display:block; text-align:center; background:#37475a; color:#fff;
-  text-decoration:none; padding:.75rem; font-weight:600; margin-top:1rem;
+  display:block; 
+  text-align:center; 
+  background:#37475a; 
+  color:#fff;
+  text-decoration:none; 
+  padding:.75rem; 
+  font-weight:600; 
+  margin-top:1rem;
 }
 
         /*------ Footer ------*/
@@ -493,8 +530,15 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Sweet" data-diet="Gluten-Free">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-15%</span>
-                            <img src="cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
+                                    <!---I added a magnifier here in this section....I added these"<div class="prod"></div>" and
+                                    <div class="magnifier"><img src="cereal1.jpg" alt=""></div>" here in this section then I 
+                                    added some  codes too at the header.styles section...Then at the bottom of this Html code I
+                                    added a Javascript for the magnification and I commented on it-->
+                            <div class="prod">
+                                <span class="tag discount">-15%</span>
+                                <img src="images/cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/placeholder-oats.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Artisan Morning Oats</h3>
@@ -514,8 +558,11 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Nutty,Fruity" data-diet="Low Sugar">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-10%</span>
-                            <img src="cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="prod">
+                                <span class="tag discount">-10%</span>
+                                <img src="images/cereal_Images/placeholder-flakes.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/placeholder-flakes.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Golden Crispy Flakes</h3>
@@ -535,8 +582,11 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Beans" data-diet="Gluten-Free">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-10%</span>
-                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="prod">
+                                <span class="tag discount">-10%</span>
+                                <img src="images/cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/Beans.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Beans</h3>
@@ -556,8 +606,11 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Maize" data-diet="Gluten-Free">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-10%</span>
-                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="prod">
+                                <span class="tag discount">-10%</span>
+                                <img src="images/cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/Beans.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Maize</h3>
@@ -577,8 +630,11 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Millet" data-diet="Gluten-Free">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-5%</span>
-                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="prod">
+                                <span class="tag discount">-5%</span>
+                                <img src="images/cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/Beans.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Millet</h3>
@@ -598,8 +654,11 @@ color: rgb(16, 145, 65);
                 <div class="product" data-flavor="Sorghum" data-diet="Gluten-Free">
                     <div class="cereal-card">
                         <div class="card-header">
-                            <span class="tag discount">-7%</span>
-                            <img src="cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="prod">
+                                <span class="tag discount">-7%</span>
+                                <img src="images/cereal_Images\Beans.jpg" alt="Classic Corn Flakes" class="cereal-image">
+                            <div class="magnifier"><img src="images/cereal_Images/Beans.jpg" alt=""></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h3 class="cereal-name">Sorghum</h3>
@@ -679,6 +738,28 @@ color: rgb(16, 145, 65);
   });
 });
 
+            document.querySelectorAll('.prod').forEach(product => {
+      const img = product.querySelector('img');
+      const magnifier = product.querySelector('.magnifier');
+      const magnifierImg = magnifier.querySelector('img');
+
+      product.addEventListener('mousemove', e => {
+        const rect = product.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        magnifier.style.display = 'block';
+        magnifier.style.left = `${x - magnifier.offsetWidth / 2}px`;
+        magnifier.style.top = `${y - magnifier.offsetHeight / 2}px`;
+
+        magnifierImg.style.left = `${-x}px`;
+        magnifierImg.style.top = `${-y}px`;
+      });
+
+      product.addEventListener('mouseleave', () => {
+        magnifier.style.display = 'none';
+      });
+    });
     </script>
         
 

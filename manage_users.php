@@ -1,4 +1,4 @@
-```php
+
 <?php
 session_start();
 if ($_SESSION['role'] !== 'admin') { exit("Access denied"); }
@@ -16,4 +16,3 @@ while ($row = $result->fetch_assoc()) {
 echo "</table>";
 $conn->close();
 ?>
-```

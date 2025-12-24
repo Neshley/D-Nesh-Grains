@@ -1,30 +1,22 @@
-```php
 <?php
+include 'db.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email    = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $password);
 
-    $conn = new mysqli("localhost", "root", "", "cereal_business");
-
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Signup successful! <a href="signIn.html">Sign In</a>";
+    if ($stmt->execute()) {
+        echo "Registration successful! <a href='signIn.html'>Login here</a>";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: " . $stmt->error;
     }
 
-
+    $stmt->close();
     $conn->close();
 }
 ?>
-```

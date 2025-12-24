@@ -1,13 +1,15 @@
 
-<!DOCTYPE html>
 <?php
 session_start();
+
+// If user is not logged in, redirect back to login
 if (!isset($_SESSION['username'])) {
-    header("Location: login.html");
+    header("Location: signIn.html");
     exit();
 }
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
@@ -30,6 +32,7 @@ if (!isset($_SESSION['username'])) {
           <li><a href="products.html">PRODUCTS</a></li>
           <li><a href="Orders.html">ORDERS</a></li>
           <li><a href="Contacts.html">CONTACT</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
             </div>
              <i class="fa fa-bars" onclick="showmenu()"></i>

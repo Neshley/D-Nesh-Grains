@@ -1,11 +1,25 @@
 <?php
-$target_dir = "uploads/"; // folder where files will be stored
-$target_file = $target_dir . basename($_FILES["file"]["name"]);
+session_start();
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
+    header("Location: login.html");
+    exit();
+}
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $targetDir = "uploads/";
+    $targetFile = $targetDir . basename($_FILES["file"]["name"]);
+    $allowedTypes = ['jpg','jpeg','png','pdf','mp4'];
 
-if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars(basename($_FILES["file"]["name"])) . " has been uploaded.";
-} else {
-    echo "Sorry, there was an error uploading your file.";
+    $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    if (in_array($fileType, $allowedTypes)) {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+            echo "File uploaded successfully!";
+        } else {
+            echo "Error uploading file.";
+        }
+    } else {
+        echo "Invalid file type.";
+    }
 }
 ?>

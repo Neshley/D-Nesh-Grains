@@ -1,14 +1,22 @@
 
-<!DOCTYPE html>
-
 <?php
-// If using PHP, keep your admin gate at the top
-// session_start();
-// if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-//   header("Location: login.html");
-//   exit();
-// }
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+
+// Optional: check if user is admin
+if ($_SESSION['username'] !== 'admin') {
+    echo "Access denied.";
+    exit();
+}
+
+include 'db.php';
 ?>
+
+
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -206,7 +214,7 @@
       <nav class="nav">
         <a href="#" class="active">Dashboard</a>
         <a href="manage_users.php">Users</a>
-        <a href="manage_orders.php">Orders</a>
+        <a href="view_orders.php">Orders</a>
         <a href="upload.php">Uploads</a>
         <a href="index.html">Home</a>
         <a href="logout.php"><small>Logout</small></a>

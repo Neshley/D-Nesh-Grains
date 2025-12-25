@@ -91,6 +91,8 @@ body {
     border-radius: 8px;
     height: fit-content;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
 }
 
 .sidebar h2 {
@@ -142,11 +144,11 @@ body {
     gap: 30px;
 }
 
+      /*magnifier codes below*/
 
     .prod {
       position: relative;
       overflow: hidden;
-      background: #fff;
       cursor: zoom-in;
     }
 
@@ -281,7 +283,7 @@ body {
         flex: none;
         width: 100%;
         padding: 20px;
-        display: none;
+        position: static;
     }
     .filter-group ul {
         display: flex;
@@ -493,7 +495,7 @@ color: rgb(16, 145, 65);
 
     <main class="shop-container">
         
-        <aside class="sidebar" style="position: sticky; top: 0">
+        <aside class="sidebar">
             <h2>Filter By:</h2>
             <div id="filters" class="filter-group">
                 <h3>Flavor Profile</h3>
@@ -533,7 +535,7 @@ color: rgb(16, 145, 65);
                                     <!---I added a magnifier here in this section....I added these"<div class="prod"></div>" and
                                     <div class="magnifier"><img src="cereal1.jpg" alt=""></div>" here in this section then I 
                                     added some  codes too at the header.styles section...Then at the bottom of this Html code I
-                                    added a Javascript for the magnification and I commented on it-->
+                                    added a Javascript for the magnification and I commented on it..I did this to card-header classes below-->
                             <div class="prod">
                                 <span class="tag discount">-15%</span>
                                 <img src="images/cereal_Images/placeholder-oats.jpg" alt="Artisan Rolled Oats" class="cereal-image">
